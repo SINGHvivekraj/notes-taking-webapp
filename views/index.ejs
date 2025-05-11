@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="main w-full min-h-screen bg-zinc-900">
+      <div class="form text-white px-5 py-5">
+        <form action="/create" method="post">
+          <input
+            type="text"
+            placeholder="Enter Title"
+            class="bg-zinc-800 block outline-none w-screen px-4 py-2 rounded-md"
+            name="title"
+          />
+          <textarea
+            placeholder="Enter Details"
+            class="bg-zinc-800 mt-[12px] block resize-none outline-none px-4 py-2 w-screen rounded-md"
+            name="details"
+          ></textarea>
+          <button class="bg-blue-500 rounded-md mt-[12px] px-4 py-2">
+            Submit
+          </button>
+        </form>
+      </div>
+
+      <div class="tasks flex flex-wrap gap-[4px] bg-blue px-5 py-5">
+        <% if(allfiles.length>0){ %> <% allfiles.forEach(file=>{ %>
+        <div class="task text-white px-5 py-5 w-auto bg-zinc-800">
+          <h1 class="rounded-md"><%= file %></h1>
+          <a
+            class="text-blue-500 inline-block mt-[6px] px-2 py-1 text-sm"
+            href='/file/<%= file %>'
+            >Read More.</a
+          >
+        </div>
+        <% }) %>
+    
+       <% } else{ %>
+        <h3 class="text-zinc-600">No tasks yet.</h3>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
