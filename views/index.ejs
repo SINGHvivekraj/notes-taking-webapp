@@ -27,15 +27,23 @@
         </form>
       </div>
 
-      <div class="tasks flex flex-wrap gap-[4px] bg-blue px-5 py-5">
+      <div class="tasks flex flex-wrap gap-[4px] bg-red px-5 py-5">
         <% if(allfiles.length>0){ %> <% allfiles.forEach(file=>{ %>
         <div class="task text-white px-5 py-5 w-auto bg-zinc-800">
           <h1 class="rounded-md"><%= file %></h1>
-          <a
-            class="text-blue-500 inline-block mt-[6px] px-2 py-1 text-sm"
+          <div class="flex  py-1 gap-[8px]">
+            <a
+            class="text-blue-500 inline-block mt-[6px]  text-sm"
             href='/file/<%= file %>'
             >Read More.</a
           >
+          <a
+            class="text-zinc-500 inline-block mt-[6px] text-sm"
+            href='/edit/<%= file %>'
+            >Edit filename</a
+          >
+          </div>
+          
         </div>
         <% }) %>
     
